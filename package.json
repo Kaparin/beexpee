@@ -12,6 +12,9 @@
     "@keystone-6/auth": "^7.0.0",
     "@keystone-6/core": "^5.0.0",
     "@keystone-6/fields-document": "^7.0.0",
+    "heroku": "^8.4.3",
+    "sqlite": "^5.0.1",
+    "sqlite3": "^5.1.6",
     "typescript": "^4.9.5"
   }
 }
