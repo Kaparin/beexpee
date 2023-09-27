@@ -9,6 +9,12 @@ type User {
   posts(where: PostWhereInput! = {}, orderBy: [PostOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: PostWhereUniqueInput): [Post!]
   postsCount(where: PostWhereInput! = {}): Int
   createdAt: DateTime
+  skinProfile: String
+  nailProfile: String
+  hairProfile: String
+  dietProfile: String
+  fitnessProfile: String
+  dentalProfile: String
 }
 
 type PasswordState {
@@ -31,6 +37,12 @@ input UserWhereInput {
   email: StringFilter
   posts: PostManyRelationFilter
   createdAt: DateTimeNullableFilter
+  skinProfile: StringFilter
+  nailProfile: StringFilter
+  hairProfile: StringFilter
+  dietProfile: StringFilter
+  fitnessProfile: StringFilter
+  dentalProfile: StringFilter
 }
 
 input IDFilter {
@@ -94,6 +106,12 @@ input UserOrderByInput {
   name: OrderDirection
   email: OrderDirection
   createdAt: OrderDirection
+  skinProfile: OrderDirection
+  nailProfile: OrderDirection
+  hairProfile: OrderDirection
+  dietProfile: OrderDirection
+  fitnessProfile: OrderDirection
+  dentalProfile: OrderDirection
 }
 
 enum OrderDirection {
@@ -107,6 +125,12 @@ input UserUpdateInput {
   password: String
   posts: PostRelateToManyForUpdateInput
   createdAt: DateTime
+  skinProfile: String
+  nailProfile: String
+  hairProfile: String
+  dietProfile: String
+  fitnessProfile: String
+  dentalProfile: String
 }
 
 input PostRelateToManyForUpdateInput {
@@ -127,6 +151,12 @@ input UserCreateInput {
   password: String
   posts: PostRelateToManyForCreateInput
   createdAt: DateTime
+  skinProfile: String
+  nailProfile: String
+  hairProfile: String
+  dietProfile: String
+  fitnessProfile: String
+  dentalProfile: String
 }
 
 input PostRelateToManyForCreateInput {
@@ -141,6 +171,9 @@ type Post {
   author: User
   tags(where: TagWhereInput! = {}, orderBy: [TagOrderByInput!]! = [], take: Int, skip: Int! = 0, cursor: TagWhereUniqueInput): [Tag!]
   tagsCount(where: TagWhereInput! = {}): Int
+  additionalField1: String
+  additionalField2: String
+  additionalField3: String
 }
 
 type Post_content_Document {
@@ -159,6 +192,9 @@ input PostWhereInput {
   title: StringFilter
   author: UserWhereInput
   tags: TagManyRelationFilter
+  additionalField1: StringFilter
+  additionalField2: StringFilter
+  additionalField3: StringFilter
 }
 
 input TagManyRelationFilter {
@@ -170,6 +206,9 @@ input TagManyRelationFilter {
 input PostOrderByInput {
   id: OrderDirection
   title: OrderDirection
+  additionalField1: OrderDirection
+  additionalField2: OrderDirection
+  additionalField3: OrderDirection
 }
 
 input PostUpdateInput {
@@ -177,6 +216,9 @@ input PostUpdateInput {
   content: JSON
   author: UserRelateToOneForUpdateInput
   tags: TagRelateToManyForUpdateInput
+  additionalField1: String
+  additionalField2: String
+  additionalField3: String
 }
 
 input UserRelateToOneForUpdateInput {
@@ -202,6 +244,9 @@ input PostCreateInput {
   content: JSON
   author: UserRelateToOneForCreateInput
   tags: TagRelateToManyForCreateInput
+  additionalField1: String
+  additionalField2: String
+  additionalField3: String
 }
 
 input UserRelateToOneForCreateInput {

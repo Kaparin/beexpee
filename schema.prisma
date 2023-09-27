@@ -12,21 +12,30 @@ generator client {
 }
 
 model User {
-  id        String    @id @default(cuid())
-  name      String    @default("")
-  email     String    @unique @default("")
-  password  String
-  posts     Post[]    @relation("Post_author")
-  createdAt DateTime? @default(now())
+  id             String    @id @default(cuid())
+  name           String    @default("")
+  email          String    @unique @default("")
+  password       String
+  posts          Post[]    @relation("Post_author")
+  createdAt      DateTime? @default(now())
+  skinProfile    String    @default("")
+  nailProfile    String    @default("")
+  hairProfile    String    @default("")
+  dietProfile    String    @default("")
+  fitnessProfile String    @default("")
+  dentalProfile  String    @default("")
 }
 
 model Post {
-  id       String  @id @default(cuid())
-  title    String  @default("")
-  content  String  @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
-  author   User?   @relation("Post_author", fields: [authorId], references: [id])
-  authorId String? @map("author")
-  tags     Tag[]   @relation("Post_tags")
+  id               String  @id @default(cuid())
+  title            String  @default("")
+  content          String  @default("[{\"type\":\"paragraph\",\"children\":[{\"text\":\"\"}]}]")
+  author           User?   @relation("Post_author", fields: [authorId], references: [id])
+  authorId         String? @map("author")
+  tags             Tag[]   @relation("Post_tags")
+  additionalField1 String  @default("")
+  additionalField2 String  @default("")
+  additionalField3 String  @default("")
 
   @@index([authorId])
 }
